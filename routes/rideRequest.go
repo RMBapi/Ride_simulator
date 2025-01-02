@@ -110,7 +110,7 @@ func driverStatus(context *gin.Context, D_id int64) {
 	}
 
 	if driverInfo.Status == "offline" {
-		context.JSON(http.StatusCreated, gin.H{"message": "Driver Status", "status": driverInfo.Status})
+		context.JSON(http.StatusOK, gin.H{"message": "Driver Status", "status": driverInfo.Status})
 		return
 	}
 
@@ -128,10 +128,10 @@ func driverStatus(context *gin.Context, D_id int64) {
 		ride.DriverPhoneNumber = driverInfo.PhoneNumber
 		ride.Status = state
 
-		context.JSON(http.StatusCreated, gin.H{"message": "Driver Status", "event": ride})
+		context.JSON(http.StatusOK, gin.H{"message": "Driver Status", "event": ride})
 
 	} else {
-		context.JSON(http.StatusCreated, gin.H{"message": "Driver Status", "status": driverInfo.Status})
+		context.JSON(http.StatusOK, gin.H{"message": "Driver Status", "status": driverInfo.Status})
 	}
 
 }
@@ -162,10 +162,10 @@ func riderStatus(context *gin.Context, R_id int64) {
 		ride.DriverPhoneNumber = driverInfo.PhoneNumber
 		ride.Status = state
 
-		context.JSON(http.StatusCreated, gin.H{"message": "Rider Status", "event": ride})
+		context.JSON(http.StatusOK, gin.H{"message": "Rider Status", "event": ride})
 
 	} else {
-		context.JSON(http.StatusCreated, gin.H{"message": "Rider didn't in a trip"})
+		context.JSON(http.StatusOK, gin.H{"message": "Rider didn't in a trip"})
 	}
 
 }
