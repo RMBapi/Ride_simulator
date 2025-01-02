@@ -1,0 +1,7 @@
+PUT  http://localhost:8080/drivers/4/status
+Content-Type: application/json
+
+
+{
+	"status" : "online"      
+}
