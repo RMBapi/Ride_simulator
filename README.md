@@ -171,7 +171,7 @@ status code : HTTP/1.1 201 Created
 
 ```
 
-### Rider ride End functionality
+### Driver ride End functionality
 
 
 #### request
@@ -292,7 +292,7 @@ status code : HTTP/1.1 200 OK
 ```
 
 
-#### response (user isn't a ride)
+#### response (The user isn't in a ride)
 
 ```
 status code : HTTP/1.1 200 OK
