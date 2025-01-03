@@ -138,6 +138,12 @@ status code : HTTP/1.1 200 OK
 
 ### Rider ride request functionality
 
+#### logic
+- is rider id valid
+- list of drivers online
+- list driver id who doesn't in a trip
+- assign trip  
+
 
 #### request
 
@@ -172,6 +178,11 @@ status code : HTTP/1.1 201 Created
 ```
 
 ### Driver ride End functionality
+
+#### logic
+- is driver id valid
+- is the driver in a trip
+- end trip 
 
 
 #### request
