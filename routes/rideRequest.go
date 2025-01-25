@@ -35,6 +35,10 @@ func riderequest(context *gin.Context, r_id int64) {
 
 	if len(intripDriverList) != 0 {
 		eligableDriverID = models.EligableDriverID(onlineDriverList, intripDriverList)
+		if eligableDriverID == 0 {
+			context.JSON(http.StatusContinue, gin.H{"message": "Driver not found for assign trip"})
+			return
+		}
 	} else {
 		eligableDriverID = onlineDriverList[0]
 	}

@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -12,9 +11,9 @@ func HandleRequest(context *gin.Context) {
 	if context.Request.Method == http.MethodPost {
 
 		type requestBody struct {
-			PhoneNumber string `json:"phoneNumber"`
-			DriverID    *int64 `json:"driverId"`
-			RiderID     *int64 `json:"riderId"`
+			PhoneNumber *string `json:"phoneNumber"`
+			DriverID    *int64  `json:"driverId"`
+			RiderID     *int64  `json:"riderId"`
 		}
 
 		var req requestBody
@@ -30,9 +29,8 @@ func HandleRequest(context *gin.Context) {
 		} else if req.RiderID != nil {
 			riderequest(context, *req.RiderID)
 			return
-		} else if req.PhoneNumber != "" {
-			fmt.Print("hello2")
-			registerRiders(context, req.PhoneNumber)
+		} else if req.PhoneNumber != nil {
+			registerRiders(context, *req.PhoneNumber)
 			return
 		}
 	} else if context.Request.Method == http.MethodGet {

@@ -64,7 +64,7 @@ func InTripDiverList() ([]int64, error) {
 
 func EligableDriverID(list1, list2 []int64) int64 {
 
-	var eligible int64
+	var eligible int64 = 0
 
 	for i := 0; i < len(list1); i++ {
 		counter := 0

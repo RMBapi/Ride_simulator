@@ -9,6 +9,13 @@ import (
 
 func registerRiders(context *gin.Context, p_n string) {
 	var rider models.Rider
+
+	b := models.IsValidPhoneNumber(p_n)
+
+	if b != true {
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Invalied Number"})
+		return
+	}
 	rider.PhoneNumber = p_n
 
 	err := rider.Save()
@@ -24,7 +31,6 @@ func registerRiders(context *gin.Context, p_n string) {
 func registerDrivers(context *gin.Context) {
 	var driver models.Driver
 	err := context.ShouldBindJSON(&driver)
-
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not purse rider data"})
 		return

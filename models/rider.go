@@ -1,6 +1,8 @@
 package models
 
 import (
+	"regexp"
+
 	"example.com/Ride_simulator/db"
 )
 
@@ -38,4 +40,10 @@ func GetUserByID(id int64) (*Rider, error) {
 		return nil, err
 	}
 	return &d, nil
+}
+
+func IsValidPhoneNumber(phoneNumber string) bool {
+	pattern := `^01[3-9][0-9]{8}$`
+	re := regexp.MustCompile(pattern)
+	return re.MatchString(phoneNumber)
 }
