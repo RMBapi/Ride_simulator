@@ -31,7 +31,6 @@ func createTable() {
 	phoneNumber TEXT NOT NULL UNIQUE
 	)
 	`
-
 	_, err := DB.Exec(createRidersTable)
 
 	if err != nil {
